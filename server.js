@@ -21,8 +21,8 @@ io.sockets.on('connection', function (socket) {
 // echo the message
 socket.on('message', function (data) {
 console.info(data);
-socket.send("[ECHO] "+data + " - argv : " + process.argv[1]);
+socket.send("[ECHO] "+data + " - argv : " + process.argv[2]);
 });
 });
 
-console.log(process.argv[1]);
+console.log(process.argv[2]);
