@@ -17,12 +17,17 @@ res.end(data);
 });
 }
 
+
+var mongopass = process.env.MONGO_PASS != undefined ? process.env.MONGO_PASS : process.argv[2];
+
+
 io.sockets.on('connection', function (socket) {
 // echo the message
 socket.on('message', function (data) {
 console.info(data);
-socket.send("[ECHO] "+data + " - argv : " + process.argv[2]);
+socket.send("[ECHO] "+data + " - argv : " + mongopass);
 });
 });
 
 console.log(process.argv[2]);
+
